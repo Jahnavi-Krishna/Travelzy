@@ -1,0 +1,197 @@
+/* Note: This example only works with Windows Insider Preview Builds 16237+ or the Fall Creators Update. */
+
+body { 
+    margin: 0;
+	font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;
+	display: grid;
+	grid-template-areas: 
+    "header header header"
+    "nav section aside"
+    "footer footer footer";
+	grid-template-rows: 5% 1fr 5%;
+	/* grid-template-columns: 20% 80%; */
+	/* grid-gap: 5px; */
+    /* height: 100vh; */
+    background-color: cornsilk;
+}
+
+/* Header & responsive nav bar */
+.header-fixed {
+	grid-area: header;
+	background-color:#607d8b;
+	box-shadow:0 1px 1px #ccc;
+	padding: 20px 40px;
+	height: 80px;
+	color: #ffffff;
+	box-sizing: border-box;
+	top:-100px;
+
+	-webkit-transition:top 0.3s;
+	transition:top 0.3s;
+}
+
+.header-fixed .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/* Logo */
+
+.header-fixed .header-limiter h1 {
+	float: left;
+	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin: 0;
+}
+
+.header-fixed .header-limiter h1 span {
+	color: #5383d3;
+}
+
+/* The navigation links */
+
+.header-fixed .header-limiter a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header-fixed .header-limiter nav {
+	font:16px Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	float: right;
+}
+
+.header-fixed .header-limiter nav a{
+	display: inline-block;
+	padding: 0 5px;
+	text-decoration:none;
+	color: #ffffff;
+	opacity: 0.9;
+}
+
+.header-fixed .header-limiter nav a:hover{
+	opacity: 1;
+}
+
+.header-fixed .header-limiter nav a.selected {
+	color: #608bd2;
+	pointer-events: none;
+	opacity: 1;
+}
+
+/* Fixed version of the header */
+
+body.fixed .header-fixed {
+	padding: 10px 40px;
+	height: 50px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+body.fixed .header-fixed-placeholder {
+	display: block;
+}
+
+body.fixed .header-fixed .header-limiter h1 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+body.fixed .header-fixed .header-limiter nav {
+	line-height: 28px;
+	font-size: 13px;
+}
+
+
+/* Making the header responsive */
+
+@media all and (max-width: 600px) {
+
+	.header-fixed {
+		padding: 20px 0;
+		height: 75px;
+	}
+
+	.header-fixed .header-limiter h1 {
+		float: none;
+		margin: -8px 0 10px;
+		text-align: center;
+		font-size: 24px;
+		line-height: 1;
+	}
+
+	.header-fixed .header-limiter nav {
+		line-height: 1;
+		float:none;
+	}
+
+	.header-fixed .header-limiter nav a {
+		font-size: 13px;
+	}
+
+	body.fixed .header-fixed {
+		display: none;
+	}
+
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 1500px;
+}
+/* header ends */
+
+/* container */
+section {
+	/* background: #ABABAB; */
+	grid-area: section;    
+}
+.container {
+    max-width: 80rem;
+    margin: auto;
+    padding: 0 2rem;
+  }
+  
+  .center {
+    text-align: center;
+  }
+
+.hero > img{
+    width: 100%;
+}
+/* Weather bar */
+/* .weather {
+    margin-top: 3%;
+	background: #ABABAB;
+	grid-area: nav; 
+} */
+/*footer*/
+
+footer{
+	grid-area: footer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #607d8b;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer p {
+/*     text-transform: uppercase; */
+    font-size: 14px;
+    opacity: 0.6;
+    align-items: center;
+}
+
+@media (max-width: 1100px) {
+    footer p {
+        text-align: center;
+    }
+}
